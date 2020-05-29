@@ -64,8 +64,10 @@ float normL2(float * Hist1, float * Hist2, int size)
 
 int main()
 {
-	Mat test1 = imread("img.png", 0);
-	Mat refer = imread("template.png", 0);
+	Mat srcMat = imread("img.png");
+	Mat refer = imread("template.png",0);
+	Mat test1;
+	cvtColor(srcMat, test1, CV_BGR2GRAY);
 	//refer.convertTo(refer, CV_32F);
 	//refer.convertTo(test1, CV_32F);
 	float dis1; //直方图具体
@@ -127,7 +129,7 @@ int main()
 	rect.y = j_min*48;
 	rect.width = 108;
 	rect.height = 48;
-	rectangle(test1, rect, CV_RGB(255, 0, 0), 1, 8, 0);
-	imshow("result", test1);
+	rectangle(srcMat, rect, CV_RGB(255, 0, 0), 1, 8, 0);
+	imshow("result", srcMat);
 	waitKey(0);
 }
