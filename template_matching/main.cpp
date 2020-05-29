@@ -106,7 +106,6 @@ int main()
 		for (int j = 0; j < nny; j++) {
 			float *temp1_hist = new float[bins];
 			memset(temp1_hist, 0, sizeof(float)*bins);
-			/*第一个block已经被处理，所以我们从i=1开始*/
 			test2 = test1(Rect(108*i, 48*j, 108, 48)).clone();
 			/*计算匹配直方图*/
 			reCode=calcHOG(test2, temp1_hist, nAngle, blockSize);
